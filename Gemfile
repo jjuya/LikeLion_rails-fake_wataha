@@ -7,6 +7,8 @@ gem 'cancancan', '~> 2.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'carrierwave', '~> 1.0'
+
+gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
 # Use sqlite3 as the database for Active Record

@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   # before_action :check_admin, only: [:check, :edit, :destroy]
   # GET /movies
   # GET /movies.json
@@ -95,7 +95,7 @@ class MoviesController < ApplicationController
   private
     def check_admin
       unless current_user.admin?
-        redirect_to root
+        redirect_to :root
       end
     end
 

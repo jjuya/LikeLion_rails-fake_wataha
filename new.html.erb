@@ -1,0 +1,9 @@
+<h1>트윗 작성</h1>
+
+<%= form_for(@tweet) do |f| %>
+  <%= f.text_field :title %> <br>
+  <%= f.text_field :content %> <br>
+  <%= f.file_field :img_url %> <br>
+  <%= f.hidden_field :user_id, value: current_user.id %> <br>
+  <%= f.submit "작성"%>
+<% end %>
