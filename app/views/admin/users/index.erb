@@ -1,11 +1,35 @@
-<h1> 유저 관리 페이지 </h1>
-<% @users.each do |user| %>
-  <p><%= user.email %> | <%= user.role %></p>
-  <%= link_to "계정 삭제", admin_user_path(user),  method: "put", data: {confirm: "Are U sure?"} %>
-  <% if user.admin? %>
-    <%= link_to "강등", downgrade_admin_user_path(user),  method: "put" %>
-  <% else %>
-    <%= link_to "승급", upgrade_admin_user_path(user),  method: "put", data: {confirm: "Are U sure?"} %>
-  <% end %>
-  <hr>
-<% end %>
+<main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+  <h1>유저 관리</h1>
+
+  <h2>유저 목록</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>email</th>
+          <th>role</th>
+          <th>등급변경</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <td>
+            <% if user.admin? %>
+              <%= link_to "강등", downgrade_admin_user_path(user),  method: "put", class: "btn btn-outline-primary btn-sm" %>
+            <% else %>
+              <%= link_to "승급", upgrade_admin_user_path(user),  method: "put", data: {confirm: "Are U sure?"}, class: "btn btn-outline-danger btn-sm" %>
+            <% end %>
+          </td>
+          <td><%= link_to "계정 삭제", admin_user_path(user),  method: "put", data: {confirm: "Are U sure?"}, class: "btn btn-outline-danger btn-sm" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</main>

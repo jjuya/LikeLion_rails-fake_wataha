@@ -1,0 +1,21 @@
+<main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+  <h1>영화 관리</h1>
+
+  <h2>영화 목록</h2>
+      <div class="table-responsive text-center">
+        <div class="row">
+          <% @movies.each do |movie| %>
+            <div class="card">
+              <img src="<%= movie.image_url %>" alt="Card image cap">
+              <p class="card-text text-center"><%= link_to movie.title, movie %></p>
+              <div class="button-group text-center">
+                <%= link_to "수정", edit_admin_movie_path(movie), class: "btn btn-outline-primary btn-sm" %>
+                <%= link_to "삭제", admin_movie_path(movie), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <%= link_to 'New Movie', new_movie_path %>
+</main>

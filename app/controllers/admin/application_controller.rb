@@ -1,5 +1,7 @@
 class Admin::ApplicationController < ApplicationController
 
+  layout 'admin'
+
   before_action :check_admin
 
   private
