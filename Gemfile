@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'aws-sdk-rails'
 
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
